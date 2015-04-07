@@ -6,10 +6,19 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXFileReference section */
+		37E36EF21AD47DDF00526949 /* FromTWLBall */ = {isa = PBXFileReference; lastKnownFileType = text; path = FromTWLBall; sourceTree = "<group>"; };
+		37E36EF31AD47DF700526949 /* TWLMagicTendril.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWLMagicTendril.m; sourceTree = "<group>"; };
+		37E36EF41AD47E0100526949 /* TWLMagicTendril.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWLMagicTendril.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		37E36EEB1AD47D5C00526949 = {
 			isa = PBXGroup;
 			children = (
+				37E36EF21AD47DDF00526949 /* FromTWLBall */,
+				37E36EF31AD47DF700526949 /* TWLMagicTendril.m */,
+				37E36EF41AD47E0100526949 /* TWLMagicTendril.h */,
 			);
 			sourceTree = "<group>";
 		};

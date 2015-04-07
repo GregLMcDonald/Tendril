@@ -1,0 +1,93 @@
+/*
+-(void)beginTwoBallMagicForTargetBall:(TWLBall*)targetBall withColor:(UIColor *)color{
+if (targetBall != nil) {
+
+if (self.candidate == nil){
+
+
+self->ballMagicCounter = 0;
+self->twoBallMagicTarget = targetBall;
+
+[self makeTendrilsForTargetBall:targetBall];
+} else {
+//Not ready to make the magic
+self->needBeginTwoBallMagic = YES;
+self->twoBallMagicTarget = targetBall;
+
+[self addObserver:self forKeyPath:@"candidate" options:NSKeyValueObservingOptionNew context:NULL];
+}
+}
+}
+-(void)delayedBeginTwoBallMagic{
+[self beginTwoBallMagicForTargetBall:self->twoBallMagicTarget withColor:[UIColor yellowColor]];
+}
+-(void)updateTwoBallMagic{
+NSString* n = [NSString stringWithString:[TWLMagicTendril name]];
+
+self.touchingTendrils = 0;
+TWLBall* __weak wself = self;
+[self enumerateChildNodesWithName:n usingBlock:^(SKNode *node, BOOL *stop) {
+TWLBall* sself = wself;
+[(TWLMagicTendril*)node update];
+if ([ ( TWLMagicTendril*)node isTouchingTarget]) ++sself.touchingTendrils;
+}];
+if (self.touchingTendrils == kNumberOfTendrils){
+self.readyForMagicalBlend = YES;
+} else {
+self.readyForMagicalBlend = NO;
+}
+}
+*/
+/*
+-(void)endTwoBallMagic{
+
+self->twoBallMagicTarget = nil;
+
+[self enumerateChildNodesWithName:@"magicTendril" usingBlock:^(SKNode *node, BOOL *stop) {
+[(TWLMagicTendril*)node terminate];
+
+}];
+
+}
+*/
+/*
+-(void)spawnNewMagicBetweenBalls{
+//Currently UNUSED
+if (self->twoBallMagicTarget != nil) {
+CGPoint p1 = [self->twoBallMagicTarget position];
+CGPoint p2 = self.position;
+float dx = p1.x - p2.x;
+float dy = p1.y - p2.y;
+float dist = sqrtf(dx*dx + dy*dy);
+if (dist < kMinSeparationForMagicBetweenBalls){
+TWLMagicBetweenBalls* brandNewMagic = [TWLMagicBetweenBalls new];
+brandNewMagic.position = self.position;
+brandNewMagic.targetBall = self->twoBallMagicTarget;
+brandNewMagic.color = self->twoBallMagicColor;
+[self.parent addChild:brandNewMagic];
+}
+}
+}
+-(void)magicBetweenBallsReachedTarget{
+self->ballMagicCounter++;
+if (self->ballMagicCounter == 50){
+//[self runAction:[SKAction playSoundFileNamed:@"doo_rising.caf" waitForCompletion:NO]];
+self->ballMagicCounter = 0;
+}
+}
+
+-(void)makeTendrilsForTargetBall:(TWLBall*)ball{
+for (int i=0; i<kNumberOfTendrils; i++){
+float angle = M_PI/4.0 + i * (2.0 * M_PI / kNumberOfTendrils );
+@autoreleasepool {
+TWLMagicTendril* tendril = [[TWLMagicTendril alloc] initWithSource:self andSink:ball andAngle:angle];
+CGPoint p = [self convertPoint:ball.position fromNode:self.scene];
+double theta = atan2(p.y, p.x);
+NSLog(@"%@ makeTendrilsForTargetBall: theta = %f",[self who],theta);
+tendril.position = CGPointMake(self.diameter/2.0*cos(angle), self.diameter/2.0*sin(angle));
+[self addChild:tendril];
+}
+}
+}
+*/
+
